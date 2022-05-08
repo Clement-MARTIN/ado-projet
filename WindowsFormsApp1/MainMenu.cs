@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         public void Custom()
         {
             Controls.Clear();
-            Controls.AddRange(new Control[] {btn_list_auteurs, btn_list_livre, btn_genre, btn_adherents});
+            Controls.AddRange(new Control[] {btn_list_auteurs, btn_list_livre, btn_genre, btn_adherents, btn_close});
         }
 
         private void btn_list_livre_Click(object sender, EventArgs e)
@@ -68,6 +68,11 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show(exception + "");
             }        
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -34,6 +34,7 @@
             this.btn_list_livre = new System.Windows.Forms.Button();
             this.btn_genre = new System.Windows.Forms.Button();
             this.btn_adherents = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_list_auteurs
@@ -104,6 +105,23 @@
             this.btn_adherents.UseVisualStyleBackColor = false;
             this.btn_adherents.Click += new System.EventHandler(this.btn_adherents_Click);
             // 
+            // btn_close
+            // 
+            this.btn_close.AutoSize = true;
+            this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_close.ForeColor = System.Drawing.Color.Red;
+            this.btn_close.Location = new System.Drawing.Point(741, 841);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(168, 34);
+            this.btn_close.TabIndex = 9;
+            this.btn_close.Text = "Fermer\r\n";
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
             // Form1
             // 
             this.AccessibleName = "Liste Auteurs";
@@ -112,7 +130,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1354, 795);
+            this.ClientSize = new System.Drawing.Size(1587, 1102);
+            this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_adherents);
             this.Controls.Add(this.btn_genre);
             this.Controls.Add(this.btn_list_livre);
@@ -127,6 +146,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btn_close;
 
         private System.Windows.Forms.Button btn_adherents;
 
