@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using WindowsFormsApp1.Class;
@@ -10,16 +9,18 @@ public class ManagerLivre
 {
     public static Livre DonneLivreDuReader(MySqlDataReader myReader)
     {
-        Livre unLivre = new Livre();
-        unLivre.Num = Convert.ToInt16(myReader["num"].ToString());
-        unLivre.Isbn = myReader["ISBN"] as string;
-        unLivre.Annee = Convert.ToInt16(myReader["annee"].ToString());
-        unLivre.Edition = myReader["editeur"] as string;
-        unLivre.Langue = myReader["langue"] as string;
-        unLivre.Prix = Convert.ToInt16(myReader["prix"].ToString());
-        unLivre.Titre = myReader["titre"] as string;
-        unLivre.NumAuteur = Convert.ToInt16(myReader["numAuteur"].ToString());
-        unLivre.NumGenre = Convert.ToInt16(myReader["numGenre"].ToString());
+        Livre unLivre = new Livre
+        {
+            Num = Convert.ToInt16(myReader["num"].ToString()),
+            Isbn = myReader["ISBN"] as string,
+            Annee = Convert.ToInt16(myReader["annee"].ToString()),
+            Edition = myReader["editeur"] as string,
+            Langue = myReader["langue"] as string,
+            Prix = Convert.ToInt16(myReader["prix"].ToString()),
+            Titre = myReader["titre"] as string,
+            NumAuteur = Convert.ToInt16(myReader["numAuteur"].ToString()),
+            NumGenre = Convert.ToInt16(myReader["numGenre"].ToString())
+        };
         return unLivre;
     }
 
@@ -82,12 +83,6 @@ public class ManagerLivre
         return response;
     }
 
-    public static bool DeleteLivre(Livre a)
-    {
-        bool Livre = false;
-        return Livre;
-    }
-
     public static bool NewLivre(Livre l)
     {
         bool response = false;
@@ -103,7 +98,6 @@ public class ManagerLivre
         myCommand.Parameters.AddWithValue("@paramAnnee", l.Annee);
         myCommand.Parameters.AddWithValue("@paramNumA", l.NumAuteur);
         myCommand.Parameters.AddWithValue("@paramNumG", l.NumGenre);
-        ;
         try
         {
             Connection.MyConnection.Open();

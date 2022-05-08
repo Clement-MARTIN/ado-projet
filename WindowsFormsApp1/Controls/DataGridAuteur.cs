@@ -9,7 +9,7 @@ namespace WindowsFormsApp1.Controls
 {
     public class DataGridAuteur : DataGridView
     {
-        public List<Auteur> LesAuteurs { get; } = new List<Auteur>();
+        public List<Auteur> LesAuteurs { get; } = new();
 
         public DataGridAuteur()
         {

@@ -9,7 +9,7 @@ namespace WindowsFormsApp1.Controls
 {
     public class DataGridGenre : DataGridView
     {
-        public List<Genre> LesGenres { get; } = new List<Genre>();
+        public List<Genre> LesGenres { get; } = new();
 
         public DataGridGenre()
         {

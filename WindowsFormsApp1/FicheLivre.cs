@@ -54,7 +54,6 @@ namespace WindowsFormsApp1
             }
 
             textBoxISBN.Text = LivreCourant.Isbn;
-            // ReSharper disable once VirtualMemberCallInConstructor
             Text = textBoxISBN.Text;
             textBoxTitre.Text = LivreCourant.Titre;
             textBoxEditeur.Text = LivreCourant.Edition;
@@ -90,11 +89,17 @@ namespace WindowsFormsApp1
                         LivreCourant.NumAuteur = Convert.ToInt16(comboBox1.SelectedIndex + 1);
                         if (LivreCourant.Num == 0)
                         {
-                            ManagerLivre.NewLivre(LivreCourant);
+                            var response = ManagerLivre.NewLivre(LivreCourant);
+                            MessageBox.Show(response
+                                ? @"Le livre à bien été ajouté !"
+                                : @"Erreur (code E9) : Le livre n'a pas été ajouté !");
                         }
                         else
                         {
-                            ManagerLivre.UpdateLivre(LivreCourant);
+                            var response = ManagerLivre.UpdateLivre(LivreCourant);
+                            MessageBox.Show(response
+                                ? @"Le livre à bien été mis à jour !"
+                                : @"Erreur (code E9) : Le livre n'a pas été mis à jour !");
                         }
                         Close();
                     }

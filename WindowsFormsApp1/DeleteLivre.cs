@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using WindowsFormsApp1.Controls;
 
 namespace WindowsFormsApp1
 {
@@ -32,16 +31,10 @@ namespace WindowsFormsApp1
             try
             {
                 Connection.MyConnection.Open();
-                int result = _myCommand.ExecuteNonQuery();
-                if (result > 0)
-                {
-                    MessageBox.Show(@"Le livre à bien été mis supprimé !");
-                }
-                else
-                {
-                    MessageBox.Show(@"Erreur (code E9) : Le livre n'a pas été supprimé !");
-                }
-
+                var result = _myCommand.ExecuteNonQuery();
+                MessageBox.Show(result > 0
+                    ? @"Le livre à bien été mis supprimé !"
+                    : @"Erreur (code E9) : Le livre n'a pas été supprimé !");
             }
             catch (Exception exception)
             {

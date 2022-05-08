@@ -9,7 +9,7 @@ namespace WindowsFormsApp1.Controls
 {
     public class DataGridAdherent : DataGridView
     {
-        public List<Adherent> LesAdherent { get; } = new List<Adherent>();
+        public List<Adherent> LesAdherent { get; } = new();
 
         public DataGridAdherent()
         {

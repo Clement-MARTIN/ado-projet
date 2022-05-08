@@ -38,7 +38,7 @@ namespace WindowsFormsApp1.Controls
             FileDropDownMenu();
         }
 
-        public void FileDropDownMenu()
+        private void FileDropDownMenu()
         {
             var fileDropDownMenuItem = new ToolStripMenuItem(TypeList);
             var newItem = new ToolStripMenuItem("Nouveau", null, null, Keys.Control | Keys.N);
@@ -47,115 +47,113 @@ namespace WindowsFormsApp1.Controls
             var editItem = new ToolStripMenuItem("Modifier", null, null, Keys.Control | Keys.E);
             var quitMenu = new ToolStripMenuItem("Quitter",null, null, Keys.Control | Keys.Tab);
 
-            if( TypeList == "Auteurs" )
+            switch (TypeList)
             {
-                seeItem.Click += (sender, e) =>
-                {
-                    SeeAuteur();
-                };
+                case "Auteurs":
+                    seeItem.Click += (_, _) =>
+                    {
+                        SeeAuteur();
+                    };
             
-                editItem.Click += (sender, e) =>
-                {
-                    EditAuteur();
-                };
+                    editItem.Click += (_, _) =>
+                    {
+                        EditAuteur();
+                    };
                 
-                newItem.Click += (sender, e) =>
-                {
-                    NewAuteur();
-                };
+                    newItem.Click += (_, _) =>
+                    {
+                        NewAuteur();
+                    };
 
-                deleteItem.Click += (sender, e) =>
-                {
-                    DeleteAuteur();
-                };
-            }
-            else if ( TypeList == "Livres" )
-            {
-                seeItem.Click += (sender, e) =>
-                {
-                    SeeLivre();
-                };
+                    deleteItem.Click += (_, _) =>
+                    {
+                        DeleteAuteur();
+                    };
+                    break;
+                case "Livres":
+                    seeItem.Click += (_, _) =>
+                    {
+                        SeeLivre();
+                    };
             
-                editItem.Click += (sender, e) =>
-                {
-                    EditLivre();
-                };
+                    editItem.Click += (_, _) =>
+                    {
+                        EditLivre();
+                    };
 
-                newItem.Click += (sender, e) =>
-                {
-                    NewLivre();
-                };
+                    newItem.Click += (_, _) =>
+                    {
+                        NewLivre();
+                    };
 
-                deleteItem.Click += (sender, e) =>
-                {
-                    DeleteLivre();
-                };
-            }
-            else if ( TypeList == "Genres" )
-            {
-                seeItem.Click += (sender, e) =>
-                {
-                    SeeGenre();
-                };
+                    deleteItem.Click += (_, _) =>
+                    {
+                        DeleteLivre();
+                    };
+                    break;
+                case "Genres":
+                    seeItem.Click += (_, _) =>
+                    {
+                        SeeGenre();
+                    };
             
-                editItem.Click += (sender, e) =>
-                {
-                    EditGenre();
-                };
+                    editItem.Click += (_, _) =>
+                    {
+                        EditGenre();
+                    };
                 
-                newItem.Click += (sender, e) =>
-                {
-                    NewGenre();
-                };
+                    newItem.Click += (_, _) =>
+                    {
+                        NewGenre();
+                    };
 
-                deleteItem.Click += (sender, e) =>
-                {
-                    DeleteGenre();
-                };
-            }
-            else if ( TypeList == "Prets" )
-            {
-                seeItem.Click += (sender, e) =>
-                {
-                };
+                    deleteItem.Click += (_, _) =>
+                    {
+                        DeleteGenre();
+                    };
+                    break;
+                case "Prets":
+                    seeItem.Click += (_, _) =>
+                    {
+                    };
             
-                editItem.Click += (sender, e) =>
-                {
-                };
+                    editItem.Click += (_, _) =>
+                    {
+                    };
                 
-                newItem.Click += (sender, e) =>
-                {
+                    newItem.Click += (_, _) =>
+                    {
                     
-                };
+                    };
 
-                deleteItem.Click += (sender, e) =>
-                {
-                };
-            }
-            else if ( TypeList == "Adherents" )
-            {
-                seeItem.Click += (sender, e) =>
-                {
-                    SeeAdherent();
-                };
+                    deleteItem.Click += (_, _) =>
+                    {
+                    };
+                    break;
+                case "Adherents":
+                    seeItem.Click += (_, _) =>
+                    {
+                        SeeAdherent();
+                    };
             
-                editItem.Click += (sender, e) =>
-                {
-                    EditAdherent();
-                };
+                    editItem.Click += (_, _) =>
+                    {
+                        EditAdherent();
+                    };
                 
-                newItem.Click += (sender, e) =>
-                {
-                    NewAdherent();
-                };
+                    newItem.Click += (_, _) =>
+                    {
+                        NewAdherent();
+                    };
 
-                deleteItem.Click += (sender, e) =>
-                {
-                    DeleteAdherent();
-                };
+                    deleteItem.Click += (_, _) =>
+                    {
+                        DeleteAdherent();
+                    };
+                    break;
             }
 
-            quitMenu.Click += (sender, e) =>
+            quitMenu.Click += (_, _) =>
             {
                 try
                 {
@@ -171,52 +169,48 @@ namespace WindowsFormsApp1.Controls
 
             Items.Add(fileDropDownMenuItem);
         }
-        
-        public void SeeAuteur()
+
+        private void SeeAuteur()
         {
             try
             {
                 DataGridViewRow monAuteur = DataAuteur.SelectedRows[0];
                 AuteurSelect = monAuteur.DataBoundItem as Auteur;
-                if (AuteurSelect != null)
+                if (AuteurSelect == null) return;
+                try
                 {
-                    try
-                    {
-                        FicheAuteur frm = new FicheAuteur(false, AuteurSelect);
-                        frm.ShowDialog();
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(AuteurSelect.ToString());
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-        
-        public void EditAuteur()
-        {
-            try
-            {
-                DataGridViewRow monAuteur = DataAuteur.SelectedRows[0];
-                AuteurSelect = monAuteur.DataBoundItem as Auteur;
-                if (AuteurSelect != null)
-                {
-                    FicheAuteur frm = new FicheAuteur(true, AuteurSelect);
+                    FicheAuteur frm = new FicheAuteur(false, AuteurSelect);
                     frm.ShowDialog();
                 }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
-        
-        
-        public void DeleteAuteur()
+
+        private void EditAuteur()
+        {
+            try
+            {
+                DataGridViewRow monAuteur = DataAuteur.SelectedRows[0];
+                AuteurSelect = monAuteur.DataBoundItem as Auteur;
+                if (AuteurSelect == null) return;
+                FicheAuteur frm = new FicheAuteur(true, AuteurSelect);
+                frm.ShowDialog();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+
+        private void DeleteAuteur()
         {
             try
             {
@@ -229,7 +223,7 @@ namespace WindowsFormsApp1.Controls
             }
         }
 
-        public void NewAuteur()
+        private void NewAuteur()
         {
             try
             {
@@ -244,8 +238,8 @@ namespace WindowsFormsApp1.Controls
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void SeeLivre()
+
+        private void SeeLivre()
         {
             try
             {
@@ -259,22 +253,23 @@ namespace WindowsFormsApp1.Controls
                         FicheLivre frm = new FicheLivre(false, LivreSelect);
                         frm.ShowDialog();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        MessageBox.Show("La fiche ne marche pas");
+                        MessageBox.Show(@"La fiche ne marche pas");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Livre null");
+                    MessageBox.Show(@"Livre null");
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show("SeeLivre marche pas");
+                MessageBox.Show(@"SeeLivre marche pas");
             }
         }
-        public void EditLivre()
+
+        private void EditLivre()
         {
             try
             {
@@ -295,32 +290,30 @@ namespace WindowsFormsApp1.Controls
                 }
                 else
                 {
-                    MessageBox.Show("Livre null");
+                    MessageBox.Show(@"Livre null");
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show("EditLivre marche pas");
+                MessageBox.Show(@"EditLivre marche pas");
             }
         }
-        
-        public void NewLivre()
+
+        private void NewLivre()
         {
             try
             {
-                if (LivreSelect != null)
-                {
-                    FicheLivre frm = new FicheLivre(true, LivreSelect);
-                    frm.ShowDialog();
-                }
+                if (LivreSelect == null) return;
+                FicheLivre frm = new FicheLivre(true, LivreSelect);
+                frm.ShowDialog();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void DeleteLivre()
+
+        private void DeleteLivre()
         {
             try
             {
@@ -332,24 +325,22 @@ namespace WindowsFormsApp1.Controls
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void SeeGenre()
+
+        private void SeeGenre()
         {
             try
             {
                 DataGridViewRow monGenre = DataGenre.SelectedRows[0];
                 GenreSelect = monGenre.DataBoundItem as Genre;
-                if (GenreSelect != null)
+                if (GenreSelect == null) return;
+                try
                 {
-                    try
-                    {
-                        FicheGenre frm = new FicheGenre(false, GenreSelect);
-                        frm.ShowDialog();
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(GenreSelect.ToString());
-                    }
+                    FicheGenre frm = new FicheGenre(false, GenreSelect);
+                    frm.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(GenreSelect.ToString());
                 }
             }
             catch (Exception e)
@@ -357,49 +348,45 @@ namespace WindowsFormsApp1.Controls
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void EditGenre()
+
+        private void EditGenre()
         {
             try
             {
                 DataGridViewRow monGenre = DataGenre.SelectedRows[0];
                 GenreSelect = monGenre.DataBoundItem as Genre;
-                if (GenreSelect != null)
-                {
-                    try
-                    {
-                        FicheGenre frm = new FicheGenre(true, GenreSelect);
-                        frm.ShowDialog();
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(GenreSelect.ToString());
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-        
-        public void NewGenre()
-        {
-            try
-            {
-                if (AuteurSelect != null)
+                if (GenreSelect == null) return;
+                try
                 {
                     FicheGenre frm = new FicheGenre(true, GenreSelect);
                     frm.ShowDialog();
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show(GenreSelect.ToString());
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void DeleteGenre()
+
+        private void NewGenre()
+        {
+            try
+            {
+                if (AuteurSelect == null) return;
+                FicheGenre frm = new FicheGenre(true, GenreSelect);
+                frm.ShowDialog();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void DeleteGenre()
         {
             try
             {
@@ -411,24 +398,22 @@ namespace WindowsFormsApp1.Controls
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void SeeAdherent()
+
+        private void SeeAdherent()
         {
             try
             {
                 DataGridViewRow monAdherent = DataAdherent.SelectedRows[0];
                 AdherentSelect = monAdherent.DataBoundItem as Adherent;
-                if (AdherentSelect != null)
+                if (AdherentSelect == null) return;
+                try
                 {
-                    try
-                    {
-                        FicheAdherent frm = new FicheAdherent(false, AdherentSelect);
-                        frm.ShowDialog();
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(AdherentSelect.ToString());
-                    }
+                    FicheAdherent frm = new FicheAdherent(false, AdherentSelect);
+                    frm.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(AdherentSelect.ToString());
                 }
             }
             catch (Exception e)
@@ -436,49 +421,45 @@ namespace WindowsFormsApp1.Controls
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void EditAdherent()
+
+        private void EditAdherent()
         {
             try
             {
                 DataGridViewRow monAdherent = DataAdherent.SelectedRows[0];
                 AdherentSelect = monAdherent.DataBoundItem as Adherent;
-                if (AdherentSelect != null)
-                {
-                    try
-                    {
-                        FicheAdherent frm = new FicheAdherent(true, AdherentSelect);
-                        frm.ShowDialog();
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(GenreSelect.ToString());
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-        
-        public void NewAdherent()
-        {
-            try
-            {
-                if (AdherentSelect != null)
+                if (AdherentSelect == null) return;
+                try
                 {
                     FicheAdherent frm = new FicheAdherent(true, AdherentSelect);
                     frm.ShowDialog();
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show(GenreSelect.ToString());
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
         }
-        
-        public void DeleteAdherent()
+
+        private void NewAdherent()
+        {
+            try
+            {
+                if (AdherentSelect == null) return;
+                FicheAdherent frm = new FicheAdherent(true, AdherentSelect);
+                frm.ShowDialog();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void DeleteAdherent()
         {
             try
             {

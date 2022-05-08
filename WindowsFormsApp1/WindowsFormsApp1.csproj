@@ -146,12 +146,6 @@
         <Compile Include="FicheLivre.Designer.cs">
           <DependentUpon>FicheLivre.cs</DependentUpon>
         </Compile>
-        <Compile Include="FicheNewAuteur.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="FicheNewAuteur.Designer.cs">
-          <DependentUpon>FicheNewAuteur.cs</DependentUpon>
-        </Compile>
         <Compile Include="MainMenu.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -189,7 +183,6 @@
           <DependentUpon>FicheGenre.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="FicheLivre.resx" />
-        <EmbeddedResource Include="FicheNewAuteur.resx" />
         <EmbeddedResource Include="MainForm.resx">
           <DependentUpon>MainMenu.cs</DependentUpon>
         </EmbeddedResource>

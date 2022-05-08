@@ -11,11 +11,13 @@ namespace WindowsFormsApp1.Manager
     {
         public static Auteur DonneAuteurDuReader(MySqlDataReader myReader)
         {
-            Auteur unAuteur = new Auteur();
-            unAuteur.Num = Convert.ToInt16(myReader["num"].ToString());
-            unAuteur.Nom = myReader["nom"] == DBNull.Value ? "" : myReader["nom"] as string;
-            unAuteur.Prenom = myReader["prenom"] == DBNull.Value ? "" : myReader["prenom"] as string;
-            unAuteur.Nationalite = myReader["nationalite"] == DBNull.Value ? "" : myReader["nationalite"] as string;
+            Auteur unAuteur = new Auteur
+            {
+                Num = Convert.ToInt16(myReader["num"].ToString()),
+                Nom = myReader["nom"] == DBNull.Value ? "" : myReader["nom"] as string,
+                Prenom = myReader["prenom"] == DBNull.Value ? "" : myReader["prenom"] as string,
+                Nationalite = myReader["nationalite"] == DBNull.Value ? "" : myReader["nationalite"] as string
+            };
             return unAuteur;
         }
 
@@ -92,12 +94,6 @@ namespace WindowsFormsApp1.Manager
             }
 
             return response;
-        }
-
-        public static bool DeleteAuteur(Auteur a)
-        {
-            bool auteur = false;
-            return auteur;
         }
 
         public static bool NewAuteur(Auteur a)

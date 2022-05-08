@@ -70,27 +70,17 @@ namespace WindowsFormsApp1
                         AdherentCourant.Mel = textBoxEmail.Text;
                         if (AdherentCourant.Num == 0)
                         {
-                            bool response = ManagerAdherent.NewAdherent(AdherentCourant);
-                            if (response)
-                            {
-                                MessageBox.Show(@"L'auteur à bien été ajouté !");
-                            }
-                            else
-                            {
-                                MessageBox.Show(@"Erreur (code E9) : L'auteur n'a pas été ajouté !");
-                            }
+                            var response = ManagerAdherent.NewAdherent(AdherentCourant);
+                            MessageBox.Show(response
+                                ? @"L'adherant à bien été ajouté !"
+                                : @"Erreur (code E9) : L'auteur n'a pas été ajouté !");
                         }
                         else
                         {
-                            bool response = ManagerAdherent.UpdateAdherent(AdherentCourant);
-                            if (response)
-                            {
-                                MessageBox.Show(@"L'auteur à bien été mis à jour !");
-                            }
-                            else
-                            {
-                                MessageBox.Show(@"Erreur (code E9) : L'auteur n'a pas été mis à jour !");
-                            }
+                            var response = ManagerAdherent.UpdateAdherent(AdherentCourant);
+                            MessageBox.Show(response
+                                ? @"L'adherant à bien été mis à jour !"
+                                : @"Erreur (code E9) : L'auteur n'a pas été mis à jour !");
                         }
 
                         Close();
@@ -120,7 +110,31 @@ namespace WindowsFormsApp1
 
             if (TextBoxAdr.Text == "")
             {
-                MessageBox.Show(@"Erreur (code E6): Vous devez saisir une nationalité !");
+                MessageBox.Show(@"Erreur (code E6): Vous devez saisir une adresse !");
+                control = false;
+            }
+            
+            if (TextBoxCP.Text == "")
+            {
+                MessageBox.Show(@"Erreur (code E4): Vous devez saisir un code postal !");
+                control = false;
+            }
+            
+            if (TextBoxVille.Text == "")
+            {
+                MessageBox.Show(@"Erreur (code E4): Vous devez saisir une ville !");
+                control = false;
+            }
+            
+            if (TextBoxTel.Text == "")
+            {
+                MessageBox.Show(@"Erreur (code E4): Vous devez saisir un numéro de téléphone !");
+                control = false;
+            }
+            
+            if (textBoxEmail.Text == "")
+            {
+                MessageBox.Show(@"Erreur (code E4): Vous devez saisir un Email !");
                 control = false;
             }
 

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using WindowsFormsApp1.Class;
-using WindowsFormsApp1.Controls;
 using WindowsFormsApp1.Manager;
 
 namespace WindowsFormsApp1
@@ -57,26 +54,17 @@ namespace WindowsFormsApp1
                         AuteurCourant.Nationalite = textBoxNation.Text;
                         if (AuteurCourant.Num == 0)
                         {
-                            bool response = ManagerAuteur.NewAuteur(AuteurCourant);
-                            if (response)
-                            {
-                                MessageBox.Show(@"L'auteur à bien été ajouté !");
-                            }
-                            else
-                            {
-                                MessageBox.Show(@"Erreur (code E9) : L'auteur n'a pas été ajouté !");
-                            }                        }
+                            var response = ManagerAuteur.NewAuteur(AuteurCourant);
+                            MessageBox.Show(response
+                                ? @"L'auteur à bien été ajouté !"
+                                : @"Erreur (code E9) : L'auteur n'a pas été ajouté !");
+                        }
                         else
                         {
-                            bool response = ManagerAuteur.UpdateAuteur(AuteurCourant);
-                            if (response)
-                            {
-                                MessageBox.Show(@"L'auteur à bien été mis à jour !");
-                            }
-                            else
-                            {
-                                MessageBox.Show(@"Erreur (code E9) : L'auteur n'a pas été mis à jour !");
-                            } 
+                            var response = ManagerAuteur.UpdateAuteur(AuteurCourant);
+                            MessageBox.Show(response
+                                ? @"L'auteur à bien été mis à jour !"
+                                : @"Erreur (code E9) : L'auteur n'a pas été mis à jour !");
                         }
                         Close();
                     }

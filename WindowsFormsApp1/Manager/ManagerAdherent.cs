@@ -10,15 +10,17 @@ public class ManagerAdherent
 {
     public static Adherent DonneAdherentDuReader(MySqlDataReader myReader)
     {
-        Adherent unAdherent = new Adherent();
-        unAdherent.Num = Convert.ToInt16(myReader["num"].ToString());
-        unAdherent.Nom = myReader["nom"] == DBNull.Value ? "" : myReader["nom"] as string;
-        unAdherent.Prenom = myReader["prenom"] == DBNull.Value ? "" : myReader["prenom"] as string;
-        unAdherent.AdrRue = myReader["adrRue"] == DBNull.Value ? "" : myReader["adrRue"] as string;
-        unAdherent.AdrCp = Convert.ToInt64(myReader["adrCP"] == DBNull.Value ? "" : myReader["adrCP"]).ToString();
-        unAdherent.AdrVille = myReader["adrVille"] == DBNull.Value ? "" : myReader["adrVille"] as string;
-        unAdherent.Tel = myReader["tel"] == DBNull.Value ? "" : myReader["tel"] as string;
-        unAdherent.Mel = myReader["mel"] == DBNull.Value ? "" : myReader["mel"] as string;
+        Adherent unAdherent = new Adherent
+        {
+            Num = Convert.ToInt16(myReader["num"].ToString()),
+            Nom = myReader["nom"] == DBNull.Value ? "" : myReader["nom"] as string,
+            Prenom = myReader["prenom"] == DBNull.Value ? "" : myReader["prenom"] as string,
+            AdrRue = myReader["adrRue"] == DBNull.Value ? "" : myReader["adrRue"] as string,
+            AdrCp = Convert.ToInt64(myReader["adrCP"] == DBNull.Value ? "" : myReader["adrCP"]).ToString(),
+            AdrVille = myReader["adrVille"] == DBNull.Value ? "" : myReader["adrVille"] as string,
+            Tel = myReader["tel"] == DBNull.Value ? "" : myReader["tel"] as string,
+            Mel = myReader["mel"] == DBNull.Value ? "" : myReader["mel"] as string
+        };
         return unAdherent;
     }
     

@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using WindowsFormsApp1.Class;
 
 namespace WindowsFormsApp1.Controls
 {
     public sealed class DataGridLivre : DataGridView
     {
-        private MySqlDataReader myReader;
-        public List<Livre> LesLivres { get; } = new List<Livre>();
+        private MySqlDataReader _myReader;
 
         public DataGridLivre()
         {
@@ -59,20 +56,20 @@ namespace WindowsFormsApp1.Controls
                 Connection.MyConnection.Open();
                 var myCommand = Connection.MyConnection.CreateCommand();
                 myCommand.CommandText = "SELECT l.num,isbn,titre,prix,editeur,annee,langue,a.nom,a.prenom, g.libelle FROM livre l INNER JOIN auteur a INNER JOIN genre g where l.numAuteur=a.num and l.numGenre=g.num";
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
+                _myReader = myCommand.ExecuteReader();
+                while (_myReader.Read())
                 {
                     Rows.Add(
-                        myReader["num"].ToString(),
-                        myReader["ISBN"].ToString(),
-                        myReader["titre"].ToString(),
-                        myReader["prix"] + " €",
-                        myReader["editeur"].ToString(),
-                        myReader["annee"].ToString(),
-                        myReader["langue"].ToString(),
-                        myReader["nom"].ToString(),
-                        myReader["prenom"].ToString(),
-                        myReader["libelle"].ToString()
+                        _myReader["num"].ToString(),
+                        _myReader["ISBN"].ToString(),
+                        _myReader["titre"].ToString(),
+                        _myReader["prix"] + " €",
+                        _myReader["editeur"].ToString(),
+                        _myReader["annee"].ToString(),
+                        _myReader["langue"].ToString(),
+                        _myReader["nom"].ToString(),
+                        _myReader["prenom"].ToString(),
+                        _myReader["libelle"].ToString()
                     );
                 }
             }
@@ -82,7 +79,7 @@ namespace WindowsFormsApp1.Controls
             }
             finally
             {
-                if (myReader != null) myReader.Close();
+                if (_myReader != null) _myReader.Close();
                 Connection.MyConnection.Close();
             }
 

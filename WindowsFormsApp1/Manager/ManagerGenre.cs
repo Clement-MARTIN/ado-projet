@@ -10,9 +10,11 @@ public class ManagerGenre
 {
     public static Genre DonneGenreDuReader(MySqlDataReader myReader)
     {
-        Genre unGenre = new Genre();
-        unGenre.Num = Convert.ToInt16(myReader["num"].ToString());
-        unGenre.Libelle = myReader["libelle"] == DBNull.Value ? "" : myReader["libelle"] as string;
+        Genre unGenre = new Genre
+        {
+            Num = Convert.ToInt16(myReader["num"].ToString()),
+            Libelle = myReader["libelle"] == DBNull.Value ? "" : myReader["libelle"] as string
+        };
         return unGenre;
     }
     

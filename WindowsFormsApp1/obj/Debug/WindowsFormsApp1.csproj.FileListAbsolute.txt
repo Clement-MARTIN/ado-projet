@@ -29,7 +29,6 @@ D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Windows
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.DeleteLivre.resources
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FicheAuteur.resources
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FicheLivre.resources
-D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FicheNewAuteur.resources
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
