@@ -1,0 +1,74 @@
+﻿using System;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using WindowsFormsApp1.Controls;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        private MainMenuStrip _menuStrip;
+        public DataGridAuteur DataAuteur { get; private set; }
+        public DataGridLivre DataLivre { get; private set; }
+        public DataGridGenre DataGenre { get; private set; }
+        public DataGridAdherent DataAdherent { get; private set; }
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataAuteur = new DataGridAuteur();
+            _menuStrip = new MainMenuStrip(DataAuteur, this, "Auteurs", DataLivre, DataGenre, DataAdherent);
+            Controls.Clear();
+            Controls.AddRange(new Control [] {DataAuteur, _menuStrip});
+        }
+
+        public void Custom()
+        {
+            Controls.Clear();
+            Controls.AddRange(new Control[] {btn_list_auteurs, btn_list_livre, btn_genre, btn_adherents});
+        }
+
+        private void btn_list_livre_Click(object sender, EventArgs e)
+        {
+            DataLivre = new DataGridLivre();
+            _menuStrip = new MainMenuStrip(DataAuteur, this, "Livres", DataLivre, DataGenre, DataAdherent);
+            Controls.Clear();
+            Controls.AddRange(new Control [] {DataLivre, _menuStrip});
+        }
+
+        private void btn_genre_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGenre = new DataGridGenre();
+                _menuStrip = new MainMenuStrip(DataAuteur, this, "Genres", DataLivre, DataGenre, DataAdherent);
+                Controls.Clear();
+                Controls.AddRange(new Control [] {DataGenre, _menuStrip});
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception + "");
+            }
+            
+        }
+
+        private void btn_adherents_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataAdherent = new DataGridAdherent();
+                _menuStrip = new MainMenuStrip(DataAuteur, this, "Adherents", DataLivre, DataGenre, DataAdherent);
+                Controls.Clear();
+                Controls.AddRange(new Control [] {DataAdherent, _menuStrip});
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception + "");
+            }        
+        }
+    }
+}
