@@ -55,7 +55,7 @@ namespace WindowsFormsApp1.Controls
                 Rows.Clear();
                 Connection.MyConnection.Open();
                 var myCommand = Connection.MyConnection.CreateCommand();
-                myCommand.CommandText = "SELECT l.num,isbn,titre,prix,editeur,annee,langue,a.nom,a.prenom, g.libelle FROM livre l INNER JOIN auteur a INNER JOIN genre g where l.numAuteur=a.num and l.numGenre=g.num";
+                myCommand.CommandText = "SELECT l.num,isbn,titre,prix,editeur,annee,langue,a.nom,a.prenom, g.libelle FROM livre l INNER JOIN auteur a INNER JOIN genre g where l.numAuteur=a.num and l.numGenre=g.num ORDER BY num";
                 _myReader = myCommand.ExecuteReader();
                 while (_myReader.Read())
                 {
