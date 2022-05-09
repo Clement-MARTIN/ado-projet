@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.Controls
         public DataGridAuteur DataAuteur { get; }
         public DataGridLivre DataLivre { get; }
         public DataGridGenre DataGenre { get; }
+        public DataGridPret DataPret { get; }
         public DataGridAdherent DataAdherent { get; }
         public Auteur AuteurSelect { get; set; } = new();
         public Livre LivreSelect { get; set; } = new();
@@ -20,7 +21,7 @@ namespace WindowsFormsApp1.Controls
         public Adherent AdherentSelect { get; set; } = new();
         public string TypeList { get; }
 
-        public MainMenuStrip(DataGridAuteur dataAuteur, Form1 mainForm, string typeList, DataGridLivre dataLivre, DataGridGenre dataGenre, DataGridAdherent dataAdherent)
+        public MainMenuStrip(DataGridAuteur dataAuteur, Form1 mainForm, string typeList, DataGridLivre dataLivre, DataGridGenre dataGenre, DataGridAdherent dataAdherent, DataGridPret dataPret)
         {
             DataAuteur = dataAuteur;
             _mainForm = mainForm;
@@ -28,6 +29,7 @@ namespace WindowsFormsApp1.Controls
             DataLivre = dataLivre;
             DataGenre = dataGenre;
             DataAdherent = dataAdherent;
+            DataPret = dataPret;
             Name = "MainMenuStrip";
             Padding = new Padding(6, 2, 0, 2);
             Location = new Point(0, 0);

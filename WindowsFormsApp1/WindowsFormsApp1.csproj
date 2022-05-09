@@ -92,11 +92,13 @@
         <Compile Include="Class\Auteur.cs" />
         <Compile Include="Class\Genre.cs" />
         <Compile Include="Class\Livre.cs" />
+        <Compile Include="Class\Pret.cs" />
         <Compile Include="Connection.cs" />
         <Compile Include="Controls\DataGridAdherent.cs" />
         <Compile Include="Controls\DataGridAuteur.cs" />
         <Compile Include="Controls\DataGridGenre.cs" />
         <Compile Include="Controls\DataGridLivre.cs" />
+        <Compile Include="Controls\DataGridPret.cs" />
         <Compile Include="Controls\MainMenuStrip.cs" />
         <Compile Include="DeleteAdherent.cs">
           <SubType>Form</SubType>

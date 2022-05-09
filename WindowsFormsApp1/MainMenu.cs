@@ -11,6 +11,7 @@ namespace WindowsFormsApp1
         public DataGridLivre DataLivre { get; private set; }
         public DataGridGenre DataGenre { get; private set; }
         public DataGridAdherent DataAdherent { get; private set; }
+        public DataGridPret DataPret { get; set; }
 
         public Form1()
         {
@@ -20,7 +21,7 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             DataAuteur = new DataGridAuteur();
-            _menuStrip = new MainMenuStrip(DataAuteur, this, "Auteurs", DataLivre, DataGenre, DataAdherent);
+            _menuStrip = new MainMenuStrip(DataAuteur, this, "Auteurs", DataLivre, DataGenre, DataAdherent, DataPret);
             Controls.Clear();
             Controls.AddRange(new Control [] {DataAuteur, _menuStrip});
         }
@@ -28,13 +29,13 @@ namespace WindowsFormsApp1
         public void Custom()
         {
             Controls.Clear();
-            Controls.AddRange(new Control[] {btn_list_auteurs, btn_list_livre, btn_genre, btn_adherents, btn_close});
+            Controls.AddRange(new Control[] {btn_list_auteurs, btn_list_livre, btn_genre, btn_adherents, btn_close, DataPret});
         }
 
         private void btn_list_livre_Click(object sender, EventArgs e)
         {
             DataLivre = new DataGridLivre();
-            _menuStrip = new MainMenuStrip(DataAuteur, this, "Livres", DataLivre, DataGenre, DataAdherent);
+            _menuStrip = new MainMenuStrip(DataAuteur, this, "Livres", DataLivre, DataGenre, DataAdherent, DataPret);
             Controls.Clear();
             Controls.AddRange(new Control [] {DataLivre, _menuStrip});
         }
@@ -44,7 +45,7 @@ namespace WindowsFormsApp1
             try
             {
                 DataGenre = new DataGridGenre();
-                _menuStrip = new MainMenuStrip(DataAuteur, this, "Genres", DataLivre, DataGenre, DataAdherent);
+                _menuStrip = new MainMenuStrip(DataAuteur, this, "Genres", DataLivre, DataGenre, DataAdherent, DataPret);
                 Controls.Clear();
                 Controls.AddRange(new Control [] {DataGenre, _menuStrip});
             }
@@ -60,7 +61,7 @@ namespace WindowsFormsApp1
             try
             {
                 DataAdherent = new DataGridAdherent();
-                _menuStrip = new MainMenuStrip(DataAuteur, this, "Adherents", DataLivre, DataGenre, DataAdherent);
+                _menuStrip = new MainMenuStrip(DataAuteur, this, "Adherents", DataLivre, DataGenre, DataAdherent, DataPret);
                 Controls.Clear();
                 Controls.AddRange(new Control [] {DataAdherent, _menuStrip});
             }
@@ -73,6 +74,14 @@ namespace WindowsFormsApp1
         private void btn_close_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btn_pret_Click(object sender, EventArgs e)
+        {
+            DataPret = new DataGridPret();
+            _menuStrip = new MainMenuStrip(DataAuteur, this, "Pret", DataLivre, DataGenre, DataAdherent, DataPret);
+            Controls.Clear();
+            Controls.AddRange(new Control [] {DataPret, _menuStrip});
         }
     }
 }

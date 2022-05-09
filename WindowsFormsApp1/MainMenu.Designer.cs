@@ -35,6 +35,7 @@
             this.btn_genre = new System.Windows.Forms.Button();
             this.btn_adherents = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.btn_pret = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_list_auteurs
@@ -122,6 +123,23 @@
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // btn_pret
+            // 
+            this.btn_pret.AutoSize = true;
+            this.btn_pret.BackColor = System.Drawing.Color.Transparent;
+            this.btn_pret.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_pret.FlatAppearance.BorderSize = 0;
+            this.btn_pret.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pret.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pret.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_pret.Location = new System.Drawing.Point(780, 276);
+            this.btn_pret.Name = "btn_pret";
+            this.btn_pret.Size = new System.Drawing.Size(168, 34);
+            this.btn_pret.TabIndex = 10;
+            this.btn_pret.Text = "Liste des Prets\r\n";
+            this.btn_pret.UseVisualStyleBackColor = false;
+            this.btn_pret.Click += new System.EventHandler(this.btn_pret_Click);
+            // 
             // Form1
             // 
             this.AccessibleName = "Liste Auteurs";
@@ -131,6 +149,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1587, 1102);
+            this.Controls.Add(this.btn_pret);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_adherents);
             this.Controls.Add(this.btn_genre);
@@ -146,6 +165,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btn_pret;
 
         private System.Windows.Forms.Button btn_close;
 
