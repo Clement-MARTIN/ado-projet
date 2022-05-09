@@ -79,7 +79,7 @@ namespace WindowsFormsApp1
         private void btn_pret_Click(object sender, EventArgs e)
         {
             DataPret = new DataGridPret();
-            _menuStrip = new MainMenuStrip(DataAuteur, this, "Pret", DataLivre, DataGenre, DataAdherent, DataPret);
+            _menuStrip = new MainMenuStrip(DataAuteur, this, "Prets", DataLivre, DataGenre, DataAdherent, DataPret);
             Controls.Clear();
             Controls.AddRange(new Control [] {DataPret, _menuStrip});
         }

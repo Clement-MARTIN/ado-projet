@@ -41,3 +41,4 @@ D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\Windows
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Controls.DataGridAdherent.resources
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FicheAdherent.resources
 D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.DeleteAdherent.resources
+D:\Users\mabsm\RiderProjects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FichePret.resources

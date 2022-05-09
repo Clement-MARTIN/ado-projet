@@ -148,6 +148,12 @@
         <Compile Include="FicheLivre.Designer.cs">
           <DependentUpon>FicheLivre.cs</DependentUpon>
         </Compile>
+        <Compile Include="FichePret.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="FichePret.Designer.cs">
+          <DependentUpon>FichePret.cs</DependentUpon>
+        </Compile>
         <Compile Include="MainMenu.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -158,6 +164,7 @@
         <Compile Include="Manager\ManagerAuteur.cs" />
         <Compile Include="Manager\ManagerGenre.cs" />
         <Compile Include="Manager\ManagerLivre.cs" />
+        <Compile Include="Manager\ManagerPret.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <EmbeddedResource Include="Controls\DataGridAdherent.resx">
@@ -185,6 +192,9 @@
           <DependentUpon>FicheGenre.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="FicheLivre.resx" />
+        <EmbeddedResource Include="FichePret.resx">
+          <DependentUpon>FichePret.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="MainForm.resx">
           <DependentUpon>MainMenu.cs</DependentUpon>
         </EmbeddedResource>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using WindowsFormsApp1.Class;
@@ -22,6 +23,24 @@ public class ManagerLivre
             NumGenre = Convert.ToInt16(myReader["numGenre"].ToString())
         };
         return unLivre;
+    }
+    
+    public static List<Livre> FindAll()
+    {
+        List<Livre> lesLivres = new List<Livre>();
+        Connection.MyConnection.Open();
+        var myCommand = Connection.MyConnection.CreateCommand();
+        myCommand.CommandText = "SELECT * FROM livre order by num";
+        var myReader = myCommand.ExecuteReader();
+             
+        while (myReader.Read())
+        {
+            Livre unGenre = DonneLivreDuReader(myReader);
+            lesLivres.Add(unGenre);
+        }
+        myReader.Close();
+        Connection.MyConnection.Close();
+        return lesLivres;
     }
 
     public static Livre FindLivre_ByID(int id)

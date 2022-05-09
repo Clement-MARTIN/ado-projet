@@ -19,6 +19,7 @@ namespace WindowsFormsApp1.Controls
         public Livre LivreSelect { get; set; } = new();
         public Genre GenreSelect { get; set; } = new();
         public Adherent AdherentSelect { get; set; } = new();
+        public Pret PretSelect { get; set; } = new();
         public string TypeList { get; }
 
         public MainMenuStrip(DataGridAuteur dataAuteur, Form1 mainForm, string typeList, DataGridLivre dataLivre, DataGridGenre dataGenre, DataGridAdherent dataAdherent, DataGridPret dataPret)
@@ -117,6 +118,7 @@ namespace WindowsFormsApp1.Controls
                 case "Prets":
                     seeItem.Click += (_, _) =>
                     {
+                        SeePret();
                     };
             
                     editItem.Click += (_, _) =>
@@ -471,6 +473,36 @@ namespace WindowsFormsApp1.Controls
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+            }
+        }
+
+        private void SeePret()
+        {
+            try
+            {
+                DataGridViewRow monPret = DataPret.SelectedRows[0];
+                int numL = Convert.ToInt32(monPret.Cells["num"].Value);
+                PretSelect = ManagerPret.FindPret_ByID(numL);
+                if (PretSelect != null)
+                {
+                    try
+                    {
+                        FichePret frm = new FichePret(false, PretSelect);
+                        frm.ShowDialog();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show(@"La fiche ne marche pas");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(@"Livre null");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(@"SeeLivre marche pas");
             }
         }
     }
